@@ -46,11 +46,11 @@ How to reach HyperEVM's data and compute some metrics of USDC
 [`mintBurnSupply_graph_generator.py`](analysis/mintBurnSupply_graph_generator.py) reads the raw log shards with **DuckDB** and:
 
 - decodes the USDC `Mint` and `Burn` events (hex `data` → exact decimals via a small UDF);
-- 
+
 - buckets them by week (`DATE_TRUNC('WEEK', …)`, UTC) → weekly **gross mint** (green) and **gross burn** (red);
-- 
+
 - accumulates the running net (mint − burn) into **total supply** (the navy line);
-- 
+
 - derives **QoQ growth** from the exact on-chain supply at each quarter boundary (not week-rounded).
 
   ```bash
