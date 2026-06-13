@@ -52,7 +52,7 @@ How to reach HyperEVM's data and compute some metrics of USDC
 - accumulates the running net (mint − burn) into **total supply** (the navy line);
 
 - derives **QoQ growth** from the exact on-chain supply at each quarter boundary (not week-rounded).
-  
+- writes **[`usdc_supply.csv`](analysis/usdc_supply.csv)** — the exact weekly table behind the chart: one row per week with `mint`, `burn`, `netChange`, and `acumBal` (cumulative total supply), all in USDC amounts (divided by 10^6).
 
   ```bash
   pip install duckdb pandas matplotlib
