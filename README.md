@@ -60,6 +60,8 @@ How to reach HyperEVM's data and compute some metrics of USDC
    ```
 
   ### Weekly balances - weekly snapshot of USDC held by address
+  
+<img width="1950" height="975" alt="usdc_balance_by_holder" src="https://github.com/user-attachments/assets/acd45515-fc30-4d61-963f-d4da6e472976" />
 
   
 
