@@ -35,3 +35,27 @@ How to reach HyperEVM's data and compute some metrics of USDC
   | `topic0`–`topic3`, `data` | raw event topics + data (decoded downstream) |
   | `removed` | reorg flag |
 
+  ## 2 - Processing Data and Visualizing it 
+
+  Visualization related sections written by claude.ai 
+
+  ### USDC supply — weekly mint / burn & total supply
+
+  <img width="1950" height="975" alt="usdc_supply" src="https://github.com/user-attachments/assets/2558a8b4-e120-4e01-9634-956c95b72e88" />
+
+[`mintBurnSupply_graph_generator.py`](analysis/mintBurnSupply_graph_generator.py) reads the raw log shards with **DuckDB** and:
+
+- decodes the USDC `Mint` and `Burn` events (hex `data` → exact decimals via a small UDF);
+- 
+- buckets them by week (`DATE_TRUNC('WEEK', …)`, UTC) → weekly **gross mint** (green) and **gross burn** (red);
+- 
+- accumulates the running net (mint − burn) into **total supply** (the navy line);
+- 
+- derives **QoQ growth** from the exact on-chain supply at each quarter boundary (not week-rounded).
+
+  ```bash
+  pip install duckdb pandas matplotlib
+  python mintBurnSupply_graph_generator.py   # reads raw/ -> writes usdc_supply.png
+
+  
+
