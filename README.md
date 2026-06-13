@@ -57,6 +57,9 @@ How to reach HyperEVM's data and compute some metrics of USDC
   ```bash
   pip install duckdb pandas matplotlib
   python mintBurnSupply_graph_generator.py   # reads raw/ -> writes usdc_supply.png
+   ```
+
+  ### Weekly balances - weekly snapshot of USDC held by address
 
   
 
