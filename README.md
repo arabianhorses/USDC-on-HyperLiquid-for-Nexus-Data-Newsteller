@@ -5,16 +5,13 @@ How to reach HyperEVM's data and compute some metrics of USDC
 
  **Data source**
  
-    - **Provider:** purroofgroup HyperEVM RPC — `https://rpc.purroofgroup.com`
-    - **What we pull:** every log emitted by the USDC contract
-      `0xb88339cb7199b77e23db6e890353e22632ba630f` — `Transfer`, `Mint`, `Burn`, etc. —
-      across its full history, from its **first event (block `10,934,119`)** to the current
-      chain head (**~`37,646,391`** at last sync, ≈ mid-June 2026).
-    - Standard `eth_getLogs`, so it's portable to any HyperEVM RPC — but purroofgroup was
-      chosen because it returns the *complete* log set
+    - **Provider:** purroofgroup HyperEVM RPC `https://rpc.purroofgroup.com`
+    
+    - **What we pull:** every log emitted by the USDC contract `0xb88339cb7199b77e23db6e890353e22632ba630f` Transfer, Mint, Burn, etc.  across its full history, from its **first event (block `10,934,119`)** to the current chain head (**~`37,646,391`** at last sync, ≈ mid-June 2026).
+    
+    - Standard `eth_getLogs`, so it's portable to any HyperEVM RPC — but purroofgroup was chosen because it returns the *complete* log set
 
-  **`fetch_logs.py`** downloads those logs and writes them to `raw/` as Parquet shards
-  (one per aligned 10,000-block chunk)
+**`fetch_logs.py`** downloads those logs and writes them to `raw/` as Parquet shards (one per aligned 10,000-block chunk)
 
 
   ```bash
