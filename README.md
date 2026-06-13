@@ -11,8 +11,8 @@ How to reach HyperEVM's data and compute some metrics of USDC
     
 - Standard `eth_getLogs`, so it's portable to any HyperEVM RPC — but purroofgroup was chosen because it returns the *complete* log set
 
-**`fetch_logs.py`** downloads those logs and writes them to `raw/` as Parquet shards (one per aligned 10,000-block chunk)
-
+**[`fetch_logs.py`](data_fetch/fetch_logs.py)** downloads those logs and writes them to `raw/` as Parquet shards (one per
+  aligned 10,000-block chunk).
 
   ```bash
   pip install requests duckdb
