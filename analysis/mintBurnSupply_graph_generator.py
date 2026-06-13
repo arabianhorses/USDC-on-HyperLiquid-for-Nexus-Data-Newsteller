@@ -154,6 +154,10 @@ _src = "cache" if os.path.exists(CACHE) else "raw"
 g, quarters, now_supply = load_cache() if _src == "cache" else build_from_raw()
 xmin, xmax = g.week_.min().to_pydatetime(), g.week_.max().to_pydatetime()
 
+# data behind the chart -> CSV for the submission (same weekly rows as usdc_supply_cache.json)
+g.to_csv("usdc_supply.csv", index=False)
+print(f"wrote usdc_supply.csv ({len(g)} weekly rows)")
+
 # ---------------------------------------------------------------------------
 # Chart
 # ---------------------------------------------------------------------------
