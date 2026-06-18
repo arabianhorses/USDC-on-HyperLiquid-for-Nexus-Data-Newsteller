@@ -63,13 +63,14 @@ How to reach HyperEVM's data and compute some metrics of USDC
   
 <img width="1950" height="975" alt="usdc_balance_by_holder" src="https://github.com/user-attachments/assets/acd45515-fc30-4d61-963f-d4da6e472976" />
 [`weeklyBalances_generator.py`](analysis/weeklyBalances_generator.py) reads the raw log shards with **DuckDB** and creates a view named as 'raw'. Then for each weeks' timestamp 
-'''
+
+```python
 
 [1756080000, 1756684800, 1757289600, 1757894400, 1758499200, 1759104000, 1759708800, 1760313600, 1760918400, 1761523200, 1762128000, 1762732800, 1763337600, 1763942400, 1764547200, 1765152000, 1765756800, 1766361600, 1766966400, 1767571200, 1768176000, 1768780800, 1769385600, 1769990400, 1770595200, 1771200000, 1771804800, 1772409600, 1773014400, 1773619200, 1774224000, 1774828800, 1775433600, 1776038400, 1776643200, 1777248000, 1777852800, 1778457600, 1779062400, 1779667200, 1780272000, 1780876800, 1781481600]
 
-'''
+```
 It run the query below and record the output a data frame.
-'''
+```sql
 WITH
 balances AS (
 SELECT 
@@ -132,7 +133,7 @@ week_
 FROM labels_ratios
 GROUP BY 1, 2
 """)
-'''
+```
 
  
 
