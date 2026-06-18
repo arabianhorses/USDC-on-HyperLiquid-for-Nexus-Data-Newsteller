@@ -69,7 +69,7 @@ How to reach HyperEVM's data and compute some metrics of USDC
 [1756080000, 1756684800, 1757289600, 1757894400, 1758499200, 1759104000, 1759708800, 1760313600, 1760918400, 1761523200, 1762128000, 1762732800, 1763337600, 1763942400, 1764547200, 1765152000, 1765756800, 1766361600, 1766966400, 1767571200, 1768176000, 1768780800, 1769385600, 1769990400, 1770595200, 1771200000, 1771804800, 1772409600, 1773014400, 1773619200, 1774224000, 1774828800, 1775433600, 1776038400, 1776643200, 1777248000, 1777852800, 1778457600, 1779062400, 1779667200, 1780272000, 1780876800, 1781481600]
 
 ```
-It run the query below and record the output a data frame.
+It run the query below 
 ```sql
 WITH
 balances AS (
@@ -104,14 +104,12 @@ GROUP BY 1, 2
 )
 , labels_ratios AS (
     SELECT *
-    --,  CASE WHEN ((ratio < 50) OR (rn<10)) THEN address ELSE 'others' END AS addressOrOthers
-   -- ,  CASE WHEN  rn<3 THEN address ELSE 'others' END AS addressOrOthers
+
     ,  CASE  
         WHEN address = '0xc20699185c15d0a2fd65779bb5d69f5b0b113c00' THEN 'Coinbase: Hyperliquid Deployer'
         WHEN address = '0x744e4f26ee30213989216e1632d9be3547c4885b' THEN 'HyperLend USDC Market'
         WHEN address = '0x462b95575cb2d56de9d1aaaaab452279b058aa06' THEN 'Hyperbeat'
         WHEN address = '0x6b9e773128f453f5c2c60935ee2de2cbc5390a24' THEN 'Circle: CCTP CoreDepositWallet'
---        WHEN rn<3                                                   THEN address
         ELSE 'others'
        END AS addressOrOthers
     FROM (
@@ -134,6 +132,5 @@ FROM labels_ratios
 GROUP BY 1, 2
 """)
 ```
-
- 
+and record the output a data frame. Then with the help of hardcoded labels we are generating the graph above
 
