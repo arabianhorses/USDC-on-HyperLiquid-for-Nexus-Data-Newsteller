@@ -1,4 +1,4 @@
-# USDC-on-HyperLiquid-for-Nexus-Data-Newsteller
+# USDC on HyperLiquid for Nexus Data Newsteller
 How to reach HyperEVM's data and compute some metrics of USDC
 
 ## 1 — Reaching the data
